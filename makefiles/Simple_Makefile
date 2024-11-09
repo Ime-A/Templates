@@ -1,0 +1,24 @@
+# Name your executable
+APP = my_program
+
+# List of source files
+SRCS = main.c 
+
+# Check if CROSS_COMPILE is set, otherwise default to an empty value
+CC = $(CROSS_COMPILE)gcc
+
+# Compilation flags
+CFLAGS += -Wall -Werror
+
+# Define the target
+all: $(APP)
+
+default: $(APP)
+
+# Compile the application
+$(APP): $(SRCS)
+	$(CC) $(CFLAGS) -o $(APP) $(SRCS)
+
+# Clean target to remove the compiled file
+clean:
+	rm -f $(APP)
